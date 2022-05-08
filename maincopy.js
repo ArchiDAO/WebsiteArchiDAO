@@ -86,8 +86,6 @@ gltfloader.load('./models/pointcloud.glb',
   console.error("loading .glb went wrong, ", err)
 })
 
-camera.position()
-
 //PLY LOADER
 // const plyloader = new PLYLoader();
 // plyloader.load('./models/untitled.ply',
