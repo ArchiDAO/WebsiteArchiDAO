@@ -64,15 +64,15 @@ box.position.set(0, 0, 0);
 //scene.add(box);
 
 // GLTF LOADER
-
+var glbMesh = new THREE.Points();
 const gltfloader = new GLTFLoader();
 
 gltfloader.load('./models/pointcloud.glb',
 (glb) => {
     // the request was successfull
     let ptMaterial = new THREE.PointsMaterial({ color: 0xFFFFFF, size: 0.0001 })
-    let glbMesh = new THREE.Points(glb.scene.children[0].geometry, ptMaterial)
-    glbMesh.scale.set(0.01,0.01,0.01);
+    glbMesh = new THREE.Points(glb.scene.children[0].geometry, ptMaterial)
+    glbMesh.scale.set(1,1,1);
     console.log(glb);
     //glbMesh.layers.set(1);
     scene.add(glbMesh);
@@ -140,27 +140,23 @@ window.addEventListener(
   "resize",
   () => {
     camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
+    
     renderer.setSize(window.innerWidth, window.innerHeight);
     bloomComposer.setSize(window.innerWidth, window.innerHeight);
   },
   false
 );
 
-function moveCamera() {
+// animate on scroll
+function animateOnScroll() {
   const t = document.body.getBoundingClientRect().top;
-
   starMesh.rotation.y += 0.001;
   box.rotation.y += 0.01;
-  box.rotation.x += 0.01;
-
-  camera.position.z = t * -0.01;
-  camera.position.x = t * -0.0002;
-  camera.rotation.y = t * -0.0002;
+  glbMesh.rotation.y += 0.1;
 }
 
-document.body.onscroll = moveCamera;
-moveCamera();
+document.body.onscroll = animateOnScroll;
+animateOnScroll();
 
 //orbit controller
 const controls = new OrbitControls(camera, renderer.domElement);
@@ -169,9 +165,7 @@ const controls = new OrbitControls(camera, renderer.domElement);
 const animate = () => {
   requestAnimationFrame(animate);
   controls.update();
-  starMesh.rotation.y += 0.00005;
-  box.rotation.y += 0.001;
-  //camera.layers.set(1);
+
   bloomComposer.render();
 };
 
