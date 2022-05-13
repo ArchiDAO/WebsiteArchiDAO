@@ -1,7 +1,6 @@
-Based on example 'Scrollable 3D Animation with Three.js'
+## ArchiDAO vanilla JS with THREE.js.
 
-- Watch the [full tutorial](https://youtu.be/Q7AOvWpIVHU) on YouTube
-- [Scrollable Three.js Animation](https://fireship.io/snippets/threejs-scrollbar-animation) Snippet
+Animate on scroll 
 
 ## Usage
 
@@ -9,3 +8,7 @@ Based on example 'Scrollable 3D Animation with Three.js'
 npm install
 npm run dev
 ```
+
+
+
+thanks to Jeff Delaney for the init code + inspiration based on example 'Scrollable 3D Animation with Three.js'
