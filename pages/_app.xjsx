@@ -1,0 +1,11 @@
+import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
+
+const MyApp = () => {
+  return (
+    <ThirdwebProvider desiredChainId={ChainId.Mainnet}>
+      <YourApp />
+    </ThirdwebProvider>
+  );
+};
+
+export default MyApp

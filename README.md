@@ -1,14 +1,15 @@
-## ArchiDAO vanilla JS with THREE.js.
+# Next Stripe Web3 Three JS 
 
-Animate on scroll 
+A Next JS project that pulls together all the libraries needed for a slick website with web3 and web2 payment integrations. Not yet slick but we're getting there.
 
-## Usage
+`yarn dev` should get you going.
 
-```
-npm install
-npm run dev
-```
+## Tasks
+In progress: 
+- database (gcp + orbitdb maybe) @jb4earth
 
+Help wanted: 
+- CSS fixes
+- Three JS updates
 
-
-thanks to Jeff Delaney for the init code + inspiration based on example 'Scrollable 3D Animation with Three.js'
+License: MIT

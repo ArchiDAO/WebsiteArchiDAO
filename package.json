@@ -1,16 +1,69 @@
 {
-  "name": "three-demo",
-  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview"
-  },
-  "devDependencies": {
-    "vite": "^2.3.0"
+    "dev": "SET PORT=8000 && next",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
-    "three": "^0.128.0",
-    "three.js": "^0.77.1"
+    "@firebase/analytics": "^0.7.9",
+    "@firebase/app": "^0.7.24",
+    "@firebase/firestore": "^3.4.9",
+    "@fortawesome/fontawesome-free": "^6.1.1",
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-brands-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
+    "@react-three/cannon": "^6.3.0",
+    "@react-three/drei": "^9.7.1",
+    "@react-three/fiber": "^8.0.13",
+    "@reduxjs/toolkit": "^1.8.1",
+    "@stripe/react-stripe-js": "1.7.0",
+    "@stripe/stripe-js": "1.22.0",
+    "@thirdweb-dev/react": "^2.2.6",
+    "@thirdweb-dev/sdk": "^2.2.4",
+    "axios": "^0.27.2",
+    "babel-plugin-macros": "^3.1.0",
+    "browser-env": "^3.3.0",
+    "dashify": "^2.0.0",
+    "dotenv": "^16.0.1",
+    "ethers": "^5.6.5",
+    "firebase": "9.8.1",
+    "firebase-admin": "^10.2.0",
+    "fontawesome": "^5.6.3",
+    "fs": "^0.0.1-security",
+    "fx": "^20.0.2",
+    "micro": "^9.3.4",
+    "micro-cors": "^0.1.1",
+    "net": "^1.0.2",
+    "next": "^12.1.6",
+    "react": "^18.0.0-rc.3",
+    "react-colorful": "^5.5.1",
+    "react-dom": "^18.0.0-rc.3",
+    "react-firebase-hooks": "^5.0.3",
+    "react-firebaseui": "^6.0.0",
+    "state-pool": "^0.7.1",
+    "stripe": "8.200.0",
+    "swr": "^1.3.0",
+    "three": "^0.140.0",
+    "three-stdlib": "^2.10.1",
+    "tls": "^0.0.1",
+    "use-shopping-cart": "3.0.5",
+    "valtio": "^1.6.0",
+    "vercel": "^24.2.0",
+    "web3": "^1.7.3"
+  },
+  "devDependencies": {
+    "@types/micro": "^7.3.3",
+    "@types/micro-cors": "^0.1.0",
+    "@types/node": "^13.1.2",
+    "@types/react": "^16.9.17",
+    "typescript": "4.5.5"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false,
+    "child_process": false
   }
 }
