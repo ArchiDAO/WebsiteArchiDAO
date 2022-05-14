@@ -85,7 +85,7 @@ const CartSummary = () => {
           type="submit"
           disabled={cartEmpty || !state.active }
         >
-          Check Out (<FontAwesomeIcon icon={['fab', 'stripe']} />)
+          Check Out (Bank) <FontAwesomeIcon icon={['fab', 'stripe']} /> 
         </button>
         <button
           className="shop-button cart-button cart-button-mid cart-style-background"
