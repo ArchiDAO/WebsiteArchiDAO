@@ -7,7 +7,7 @@ import { useGLTF } from '@react-three/drei'
 
 export default function Model({ ...props }) {
   const group = useRef()
-  const { nodes, materials } = useGLTF('/test.gltf')
+  const { nodes, materials } = useGLTF('/archidao_wearable_2.gltf')
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh geometry={nodes.BezierCurve.geometry} material={nodes.BezierCurve.material} position={[-5.95, 2.27, 0.44]} rotation={[Math.PI / 2, 0, 0]} scale={1.55} />

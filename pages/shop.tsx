@@ -8,7 +8,7 @@ import { AddressContext } from "../contexts/Address"
 const DonatePage: NextPage = () => {
 
   return (
-    <Layout title="Shopping Cart | Next.js + TypeScript Example">
+    <Layout title="ArchiDAO">
 
       <div className="nft-container">
         <Cart>

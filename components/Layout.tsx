@@ -9,6 +9,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { ConnectWallet } from '../components/ConnectWallet';
 import { AddressContext } from "../contexts/Address"
 
+
+
 library.add(faTwitter,faDiscord,faGithub);
 type Props = {
   children: ReactNode
@@ -64,7 +66,7 @@ const Layout = ({
       <span>
 
          <a
-           href="https://github.com/archiDAO"
+           href="https://discord.gg/J9yAMgP3"
            target="_blank"
            rel="noopener noreferrer"
          >

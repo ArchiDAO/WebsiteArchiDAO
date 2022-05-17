@@ -25,9 +25,9 @@ export const CWload = (context) => {
     if (address) {
     const timestamp = Date.now().toString();
     console.log(timestamp)
-    updateDoc(doc(firestore, "crypto_logins", String(address)), {
-            [context]: arrayUnion(String(timestamp))  }).catch(()=>{ setDoc(doc(firestore, "crypto_logins", String(address)), {
-            [context]: arrayUnion(String(timestamp))  });})
+    // updateDoc(doc(firestore, "crypto_logins", String(address)), {
+    //         [context]: arrayUnion(String(timestamp))  }).catch(()=>{ setDoc(doc(firestore, "crypto_logins", String(address)), {
+    //         [context]: arrayUnion(String(timestamp))  });})
 
 
 } else {}
