@@ -11,13 +11,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // // this babel macros brings in a module called moduled and next doesnt like that (which makes sense because using a built in name is a bad idea)
 // import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro'
 import React, { useState, useEffect, useCallback } from 'react'
-
-
+let  addOn = 0
 const Products = () => {
   const { addItem, removeItem, incrementItem, decrementItem,cartCount } = useShoppingCart()
   const [minusOn, setMinus] = useState(false)
   const [plusOn, setPlus] = useState(true)
+  const [cartFull, setFull] = useState(false)
   const address = CWload('Products.tsx')
+
   // try{decrementItem(product.id)}
   const minusAction = (product) => {
 
@@ -30,7 +31,7 @@ const Products = () => {
 
   const plusAction = (product) => {
     console.log(product)
-    if (cartCount < 10) {
+    if (cartCount < 3) {
     addItem(product)
     } else { setPlus(false) }
     checkButtons(cartCount)
@@ -39,10 +40,17 @@ const Products = () => {
   const checkButtons = (count) => {
     console.log(count)
     if (count > 1 ) {setMinus(true)}
-    if (count < 10 ) {setPlus(true)}
+    if (count < 3 ) {setPlus(true)}
   }
 
-  if (!address) {return (
+  useEffect(() => {
+  // Update the document title using the browser API
+  if (cartFull == false)
+      {  products.map((product) => (addItem(product)))
+        setFull(true)}
+});
+  if (!address) {
+    return (
     <section className="products">
         {products.map((product) => (
           <div key={product.id} className="product">
@@ -83,7 +91,7 @@ const Products = () => {
               console.log(product)
               addItem(product)
             }}
-            disabled={!address || !(cartCount < 10) }
+            disabled={!address || !(cartCount < 1) }
           >
             +
           </button>

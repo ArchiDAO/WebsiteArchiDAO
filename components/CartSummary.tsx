@@ -3,6 +3,8 @@ import {
   useNetwork,
   useAddress,
 } from '@thirdweb-dev/react';
+import { setDoc,doc,collection, getFirestore,updateDoc, arrayUnion } from '@firebase/firestore';
+import { firestore } from '../components/firebase/client';
 import Web3 from 'web3';
 import StripeTestCards from '../components/StripeTestCards'
 import { CWload } from '../components/CWload';
@@ -40,8 +42,12 @@ const CartSummary = () => {
     setErrorMessage('')
 
     console.log(state.address)
-    console.log('got hrere')
+    state.cartDetails = cartDetails
 
+    const timestamp = Date.now().toString();
+    await updateDoc(doc(firestore, "purchase_attempt", String(timestamp)), {
+            cartDetails: ((cartDetails)), address:address_  }).catch(()=>{ setDoc(doc(firestore, "purchase_attempt", String(timestamp)), {
+            cartDetails: ((cartDetails)), address:address_ });})
 
     const response = await fetchPostJSON(
       '/api/checkout_sessions/cart',
@@ -59,9 +65,9 @@ const CartSummary = () => {
   }
   console.log(state)
   console.log(state.active)
-  console.log('CS pre retren')
   console.log(cartEmpty)
-  if (CWload('CartSummary.tsx')){  return (
+  let address_ = CWload('CartSummary.tsx')
+  if (address_){  return (
       <form className='cart' onSubmit={handleCheckout}>
         {errorMessage ? (
           <p style={{ color: 'red' }}>Error: {errorMessage}</p>
@@ -83,9 +89,9 @@ const CartSummary = () => {
         <button
           className="shop-button cart-button cart-button-top cart-style-background"
           type="submit"
-          disabled={true}
+          disabled={cartEmpty || !state.active }
         >
-          <s>Check Out (Bank) <FontAwesomeIcon icon={['fab', 'stripe']} /></s>
+          Check Out (Bank) <FontAwesomeIcon icon={['fab', 'stripe']} />
         </button>
         <button
           className="shop-button cart-button cart-button-mid cart-style-background"
