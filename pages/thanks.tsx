@@ -5,12 +5,10 @@ import Layout from '../components/Layout'
 import Head from "next/head";
 import { CWload } from '../components/CWload';
 
-import { setDoc,doc,collection, getFirestore,updateDoc, arrayUnion } from '@firebase/firestore';
-import { firestore } from '../components/firebase/client';
+import { setDoc,doc,collection, getFirestore } from '@firebase/firestore';
 
 import { useState } from 'react';
-import { AddressContext } from "../contexts/Address"
-
+import { firestore } from '../components/firebase/client';
 
 import React from "react"
 
@@ -20,30 +18,22 @@ import {
 } from '@thirdweb-dev/react';
 
 
-const addPurchasex = (address) => {
+const addPurchasex = async (address) => {
       // alert(String(address))
-      const [ state, dispatch ] = React.useContext(AddressContext)
-      const timestamp = Date.now().toString();
-      if (address) {updateDoc(doc(firestore, "purchase_success", String(timestamp)), {
-              address: arrayUnion(String(address))  }).catch(()=>{ setDoc(doc(firestore, "purchase_success", String(timestamp)), {
-              address: (String(address)) });})}
 };
 
 const IndexPage: NextPage = () => {
-  let address_ = CWload('purchase-thanks')
-  addPurchasex(address_)
+  CWload('CWload')
   return (
     <Layout title="ArchiDAO">
-      <ul className="card-list">
-        <li>
-        <Link href="/">
-            <a className="whitelist-div cart-style-background">
-          <h2>Thanks for purchasing!</h2><br/>
-          <p>The ArchiDAO NFT will be distributed in the next 48 hours.</p>
-                      </a>
-          </Link>
-        </li>
-      </ul>
+
+
+    <h1>Thanks for purchasing!</h1>
+    <h2>The ArchiDAO NFT will be distributed in the next 48 hours.</h2>
+    <h3>If the address shown at top right is not correct, please hit us up in Discord!</h3>
+
+
+
     </Layout>
   )
 
